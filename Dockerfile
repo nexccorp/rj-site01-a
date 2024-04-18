@@ -16,6 +16,9 @@ COPY . .
 # Build the React app
 RUN npm run build
 
+# Set environment variable for production
+ENV NODE_ENV=production
+
 # Expose port 3000 to the outside world
 EXPOSE 3000
 

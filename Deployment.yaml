@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rj-site01-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: rj-site01
+  template:
+    metadata:
+      labels:
+        app: rj-site01
+    spec:
+      containers:
+        - name: rj-site01-container
+          image: 930278120115.dkr.ecr.ap-southeast-1.amazonaws.com/rj-site-react:v1
+          ports:
+            - containerPort: 3000
+      imagePullSecrets:
+      - name: rj-site01-ecr-registry-credentials
